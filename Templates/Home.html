@@ -1,3 +1,79 @@
-<h1>
-    Hello
-<h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <style>
+    body {
+      background-color: #121212; 
+      color: #ffffff; 
+      font-family: 'Arimo', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login {
+      background-color: #1e1e1e; 
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Poppins';
+      color: #00bfff; 
+    }
+
+    input[type="text"] {
+      width: 100%; 
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #00bfff; 
+      border-radius: 4px;
+      background-color: #2a2a2a; 
+      color: #ffffff;
+      font-size: 16px;
+      box-sizing: border-box; 
+    }
+
+    button {
+      background-color: #00bfff; 
+      color: #ffffff; 
+      border: none;
+      padding: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%; 
+      font-size: 16px; 
+    }
+
+    button:hover {
+      background-color: #0080ff; 
+    }
+
+    .prediction {
+      margin-top: 20px;
+      color: #00bfff; 
+    }
+  </style>
+</head>
+<body>
+  <div class="login">
+    <h1>Boston House Price Prediction</h1>
+    <form action="{{ url_for('predict')}}" method="post">
+      <input type="text" name="text" placeholder="Enter text here" required="required" />
+      <button type="submit" class="btn btn-primary btn-block btn-large">Analyse</button>
+    </form>
+    <br>
+    <div class="prediction">
+      {% if prediction_text %}
+        <p>{{ prediction_text }}</p>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>
