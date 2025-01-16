@@ -4,3 +4,4 @@ numpy
 matplotlib
 nltk
 scikit-learn
+gunicorn
